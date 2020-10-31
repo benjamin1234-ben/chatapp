@@ -1,0 +1,141 @@
+<div class="main">
+    <div class="row">
+        <div class="col s8" style="margin-top: .5rem;">
+            <nav class="white flez">
+                <div class="nav-wrapper">
+                        <div class="col 3 center">
+                            <li class="link center"><a href="/interact/{{user.username}}/posts" class="green-text active">POSTS<i style="font-size: 1.2rem; margin-left: .8rem" class="green-text fas fa-archive"></i></a></li>
+                        </div>
+                        <div class="col 3 center">
+                            <li class="link center"><a href="/interact/{{user.username}}/users" class="green-text">USERS <i style="font-size: 1.2rem; margin-left: .8rem" class="green-text fas fa-user"></i></a></li>
+                        </div>
+                        <div class="col 3 center">
+                            <li class="link center"><a href="/interact/{{user.username}}/chat" class="green-text">CHAT<i style="font-size: 1.2rem; margin-left: .8rem" class="green-text fas fa-comment"></i></a></li>
+                        </div>
+                        <div class="col 3 center">
+                            <li class="link center"><a href="/interact/{{user.username}}/groupchat" class="green-text">GROUPCHAT<i style="font-size: 1.2rem; margin-left: .8rem" class="green-text fas fa-users"></i></a></li>
+                        </div>
+                </div>
+            </nav>
+            <div style="display: none;" id="posts" style="margin-top: 1rem;">
+                {{#each posts}}
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="user">
+                                <div class="row">
+                                    <img src="/upload/uploads/Interact-4f3f9382{{profilePic}}" alt="profilepic" class="col s3 circle" style="width: 200px; height: 200px">
+                                    <div class="col s9" style="margin-top: 2rem;">
+                                        <p class="green-text" style="font-weight: 500;">Posted by {{username}}</p>
+                                        <p class="green-text" style="font-weight: 500;">On {{createdAt}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="postdesc">
+                                <p class="green-text" style="font-weight: 500;"p>{{postContent}}</p>
+                            </diV>
+                            <div class="postImg" style="margin-top: 1rem;">
+                                <img src="/upload/uploads/Interact-4f3f9382{{postImage}}" alt="postImage" style="max-width: 100%;">
+                            </div>
+                            <div class="card-action">
+                                <div class="row" style="margin-top: 1rem;">
+                                    <div class="col s4 center">
+                                        <a id="like" type="submit" class="btn waves-effect waves-light white green-text" style="font-weight: 700;">
+                                            <i class="fas fa-thumbs-up green-text" style="font-size: large; margin-right: .7rem"></i>LIKE
+                                        </a>
+                                    </div>
+                                     <div class="col s4 center">
+                                        <a id="dislike" type="submit" class="btn waves-effect waves-light white green-text" style="font-weight: 700;">
+                                            <i class="fas fa-thumbs-down green-text" style="font-size: large; margin-right: .7rem"></i>DISLIKE
+                                        </a> 
+                                    </div>
+                                     <div class="col s4 center">
+                                        <a type="submit" class="btn waves-effect waves-light white green-text comment" style="font-weight: 700;">
+                                            <i class="fas fa-comment green-text" style="font-size: large; margin-right: .7rem"></i>COMMENT
+                                        </a>
+                                    </div>
+                                    <div class="text-comment" style="display: none; margin-top: 2rem;">
+                                        <div class="row">
+                                            <div class="input-field col s9">
+                                                <textarea name="postDesc" id="text" class="materialize-textarea"></textarea>
+                                                <label for="text" class="green-text" style="font-weight: 700;">Comment</label>
+                                            </div>
+                                            <div class="col s3">
+                                                <button id="" class="btn waves-effect waves-light white green-text decomment" style="font-weight: 700; margin-top: 1.5rem">SEND</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+            <ul style="display: none;" id="user" class="collection">
+                {{#each users}}
+                    <li class="collection-item avatar" style="height: 120px;">
+                        <img src="/upload/uploads/Interact-4f3f9382{{profilePic}}" alt="profilepic" class="col s3" style="width: 200px; height: 100px">
+                        <h1 class="header green-text center title" style="font-size: 1.5rem; margin-top: 2.7rem; margin-right: 27rem">{{username}}</h1>
+                        <a href="/_profile/{{username}}" class="btn waves-effect waves-light white green-text secondary-content" style="font-weight: 700; margin-top: 2rem;">
+                            <i class="fas fa-user green-text" style="font-size: large; margin-right: .7rem"></i>View Profile
+                        </a>
+                    </li>
+                {{/each}}
+            </ul>
+            <ul style="display: none;" id="chats" class="collection">
+                {{#each users}}
+                    <li class="collection-item avatar" style="height: 120px;">
+                        <img src="/upload/uploads/Interact-4f3f9382{{profilePic}}" alt="profilepic" class="col s3" style="width: 200px; height: 100px">
+                        <h1 class="header green-text center title" style="font-size: 1.5rem; margin-top: 2.7rem; margin-right: 27rem">{{username}}</h1>
+                        <a href="/chat/{{currentUser}}/{{username}}/p2p" id="{{username}}" class="btn waves-effect waves-light white green-text secondary-content chatBtn" style="font-weight: 700; margin-top: 2rem;">
+                            <i class="fas fa-comment green-text" style="font-size: large; margin-right: .7rem"></i>CHAT
+                        </a>
+                    </li>
+                {{/each}}
+            </ul>
+            <div style="display: none;" id="groupchat" class="collection">
+                {{#each groups}}
+                    <li class="collection-item avatar" style="height: 120px; list-style: none">
+                        <img src="/upload/uploads/Interact-4f3f9382{{groupImage}}" alt="profilepic" class="col s3" style="width: 200px; height: 100px">
+                        <h1 class="header green-text center title" style="font-size: 1.5rem; margin-top: 1.4rem; margin-right: 27rem">{{groupName}}</h1>
+                        <a href="/g_chat/{{currentUser}}/{{groupName}}/group" class="btn waves-effect waves-light white green-text secondary-content" style="font-weight: 700; margin-top: 1.7rem;">
+                            <i class="fas fa-plus green-text" style="font-size: large; margin-right: .7rem"></i>ENTER
+                        </a>
+                    </li>
+                {{/each}}
+            </div>
+        </div>
+        <div class="col s4 sidebar card">
+            <div class="card-content">
+                <h1 class="header green-text center" style="font-size: 2rem;"><i class="fas fa-globe icon" style="font-size: 2rem;"></i>Interact</h1>
+                <li style="list-style: none;" class="divider"></li>
+                <div class="flex">
+                    <img src="/upload/uploads/{{user.profilePic}}" alt="profile pics" style="max-width: 100%;">
+                </div>
+                <li style="list-style: none;" class="divider"></li>
+                <div class="flex">
+                    <li style="list-style: none;  margin-bottom: 1.5rem; font-weight: 500" class="green-text">Username - {{user.username}}</li>
+                    <li style="list-style: none;  margin-bottom: 1.5rem; font-weight: 500" class="green-text">E-mail - {{user.email}}</li>
+                    <li style="list-style: none;  margin-bottom: 1.5rem; font-weight: 500" class="green-text">Phone-Number - {{user.phone}}</li>
+                </div>
+                <li style="list-style: none;" class="divider"></li>
+                <div class="flex">
+                    <li style="list-style: none; margin-bottom: 2rem">
+                        <a href="/profile/{{user.username}}" id="join" type="submit" class="btn waves-effect waves-light white green-text" style="font-weight: 700;">
+                            <i class="fas fa-users green-text" style="font-size: large; margin-right: .7rem"></i>Join a GroupChat
+                        </a>
+                    </li>
+                    <li style="list-style: none; margin-bottom: 2rem">
+                        <a href="/profile/{{user.username}}" id="create" type="submit" class="btn waves-effect waves-light white green-text" style="font-weight: 700;">
+                            <i class="fas fa-plus green-text" style="font-size: large; margin-right: .7rem"></i>Create a GroupChat
+                        </a>
+                    </li>
+                    <li style="list-style: none; margin-bottom: 2rem">
+                        <a href="/profile/{{user.username}}" id="post" type="submit" class="btn waves-effect waves-light white green-text" style="font-weight: 700;">
+                            <i class="fas fa-upload green-text" style="font-size: large; margin-right: .7rem"></i>Create a Post
+                        </a>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

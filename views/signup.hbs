@@ -1,0 +1,56 @@
+<div class="container">
+        <div class="row">
+            <div class="col s8 offset-s2">
+                <h1 class="heading2 green-text">REGISTER</h1>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="row">
+                            <form class="col s10 offset-s1" id="register" action="/signup" method="POST" enctype="multipart/form-data">
+                                <div class="input-field">
+                                    <input type="text" class="validate white" name="firstname" id="register_firstname">
+                                    <label class="green-text" style="font-weight: 600;" for="firstname">Firstname</label>
+                                </div>
+                                <div class="input-field">
+                                    <input type="text" class="validate" name="lastname" id="register_lastname">
+                                    <label class="green-text" style="font-weight: 600;" for="lastname">Lastname</label>
+                                </div>
+                                <div class="input-field">
+                                    <input type="email" class="validate" name="email" id="register_email">
+                                    <label class="green-text" style="font-weight: 600;" for="email">E-mail</label>
+                                </div>
+                                <div class="input-field">
+                                    <input type="text" class="validate" name="phonenumber" id="register_phonenumber">
+                                    <label class="green-text" style="font-weight: 600;" for="phonenumber">Phonenumber</label>
+                                </div>
+                                <div class="input-field">
+                                    <input type="text" class="validate" name="username" id="register_username">
+                                    <label class="green-text" style="font-weight: 600;" for="username">Username</label>
+                                </div>
+                                <div class="input-field">
+                                    <input type="password" class="validate" name="password" id="register_password">
+                                    <label class="green-text" style="font-weight: 600;" for="password">Password</label>
+                                </div>
+                                <div class="input-field file-field" style="margin-top: 1.8rem;">
+                                    <div class="btn white green-text">
+                                        <span  style="font-weight: 700;"><i class="fas fa-plus" style="margin-right: 1rem;"></i>Upload a profile picture</span>
+                                        <input type="file" name="file" id="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input type="text" class="file-path validate" name="filepath">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s6 offset-s3 center-align" style="margin-top: 1.8rem;">
+                                        <button type="submit" class="btn waves-effect waves-light white green-text" style="font-weight: 700;">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+    
+    
+
