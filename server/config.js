@@ -1,13 +1,13 @@
+require("dotenv").config();
 let path = require("path");
 let express = require("express");
 let bodyParser = require("body-parser");
-let methodOverride = require("method-override");
-let morgan = require("morgan");
+// let methodOverride = require("method-override");
+// let morgan = require("morgan");
 let exphbs = require("express-handlebars");
 let multer = require("multer");
-let session  = require("express-session");
+// let session  = require("express-session");
 let routes = require("./routes");
-require("dotenv").config();
 
 
 module.exports = function(app) {
@@ -16,7 +16,7 @@ module.exports = function(app) {
     // app.use(morgan("dev"));
     app.use(bodyParser.urlencoded({"extended": false}));
     app.use(bodyParser.json());
-    app.use(methodOverride());
+    // app.use(methodOverride());
     app.use("/public", express.static(path.resolve(__dirname, "../static")));
     app.use("/upload", express.static(path.resolve(__dirname, "../static")));
     // app.use(session({

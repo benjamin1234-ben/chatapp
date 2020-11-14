@@ -38,10 +38,11 @@ let component = {
     },
     access(req, res) {
         let authHeader = req.header("Authorization");
+        let ACCESS_TOKEN = '00c9bb5e49c6cfce4062e4069a1cad9c';
         if(authHeader) {
             let token = authHeader.slice(7);
             if(token) {
-                jwt.verify(token, process.env.ACCESS_TOKEN, (err, user) => {
+                jwt.verify(token, ACCESS_TOKEN, (err, user) => {
                     if(err)
                         res.sendStatus(500);
                     else
@@ -67,7 +68,7 @@ let component = {
                 postContent: body.postDesc
             })
             post.save().then(post => {
-                // console.log(post);
+                // console.log(doc);
                 res.redirect("/interact/" + doc.username + "/posts")
             }).catch(err => console.log(err));
         })

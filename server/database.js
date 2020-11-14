@@ -1,11 +1,12 @@
 let mongoose = require("mongoose");
-let database = "Interact";
-let host = "127.0.0.1:27017";
+// let database = "Interact";
+// let host = "127.0.0.1:27017";
 let Schema = mongoose.Schema;
+let uri = process.env.MONGO_URI
 
 // Database connection
 let connectDB = () => {
-    mongoose.connect(`mongodb://${host}/${database}`, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
+    mongoose.connect(`mongodb+srv://benjamin:12345@chatapp.is6gb.mongodb.net/chatapp?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
     .then(() => {
         console.log("Connection to database was successful")
     }).catch((err) => {

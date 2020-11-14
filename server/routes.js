@@ -19,7 +19,7 @@ let fields = [
 ]
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "../static/uploads");
+        cb(null, "./static/uploads");
     },
     filename: (req, file, cb) => {
         cb(null, 'Interact-4f3f9382' + file.originalname )

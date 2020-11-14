@@ -11,6 +11,7 @@ let component = {
     },
     access(req, res) {
         let body = req.body;
+        let ACCESS_TOKEN = '00c9bb5e49c6cfce4062e4069a1cad9c';
         UserModel.findOne({
             username: body.username
         }).then(async (doc) => {
@@ -20,7 +21,7 @@ let component = {
                 if(passwordCheck) {
                     // jwt Authorization
                     let authUser = {username: body.username};
-                    let accessToken = jwt.sign(authUser, process.env.ACCESS_TOKEN);
+                    let accessToken = jwt.sign(authUser, ACCESS_TOKEN);
                     res.json({accessToken: accessToken});
                 }
                 else {
